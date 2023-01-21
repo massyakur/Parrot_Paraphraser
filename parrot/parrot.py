@@ -24,7 +24,7 @@ class Parrot():
       save_phrase = input_phrase
       if len(input_phrase) >= max_length:
          max_length += 32 	
-      input_phrase = re.sub('[^a-zA-Z0-9 \?\'\-\/\:\.]', '', input_phrase)
+      input_phrase = re.sub('[^a-zA-Z0-9 \?\'\-\/\:\,\.]', '', input_phrase)
       input_phrase = "paraphrase: " + input_phrase
       input_ids = self.tokenizer.encode(input_phrase, return_tensors='pt')
       input_ids = input_ids.to(device)
@@ -57,7 +57,7 @@ class Parrot():
 
       for pred in preds:
         gen_pp = self.tokenizer.decode(pred, skip_special_tokens=True)
-        gen_pp = re.sub('[^a-zA-Z0-9 \?\'\-\:\.]', '', gen_pp)
+        gen_pp = re.sub('[^a-zA-Z0-9 \?\'\-\:\,\.]', '', gen_pp)
         paraphrases.add(gen_pp)
 
          
@@ -89,7 +89,7 @@ class Parrot():
       if len(input_phrase) >= max_length:
          max_length += 32	
 			
-      input_phrase = re.sub('[^a-zA-Z0-9 \?\'\-\/\:\.]', '', input_phrase)
+      input_phrase = re.sub('[^a-zA-Z0-9 \?\'\-\/\:\,\.]', '', input_phrase)
       input_phrase = "paraphrase: " + input_phrase
       input_ids = self.tokenizer.encode(input_phrase, return_tensors='pt')
       input_ids = input_ids.to(device)
@@ -123,7 +123,7 @@ class Parrot():
 
       for pred in preds:
         gen_pp = self.tokenizer.decode(pred, skip_special_tokens=True)
-        gen_pp = re.sub('[^a-zA-Z0-9 \?\'\-\:\.]', '', gen_pp)
+        gen_pp = re.sub('[^a-zA-Z0-9 \?\'\-\:\,\.]', '', gen_pp)
         paraphrases.add(gen_pp)
 
 
