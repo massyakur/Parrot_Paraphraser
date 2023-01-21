@@ -56,8 +56,8 @@ class Parrot():
       paraphrases= set()
 
       for pred in preds:
-        gen_pp = self.tokenizer.decode(pred, skip_special_tokens=True).lower()
-        gen_pp = re.sub('[^a-zA-Z0-9 \?\'\-]', '', gen_pp)
+        gen_pp = self.tokenizer.decode(pred, skip_special_tokens=True)
+        gen_pp = re.sub('[^a-zA-Z0-9 \?\'\-\:\.]', '', gen_pp)
         paraphrases.add(gen_pp)
 
          
